@@ -1,0 +1,28 @@
+name: Validación automática Node.js
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v2
+
+      - name: Configurar entorno Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.x'
+
+      - name: Instalar dependencias del proyecto
+        run: yarn
+
+      - name: Ejecutar la batería de pruebas
+        run: yarn test
