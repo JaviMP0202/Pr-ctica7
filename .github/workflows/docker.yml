@@ -35,7 +35,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: Construir y publicar imagen
         uses: docker/build-push-action@v2
         with:
@@ -43,5 +42,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            javimanosalva/practica7:latest
-            ghcr.io/javimanosalva/practica7:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/practica7:latest
+            ghcr.io/${{ github.repository_owner }}/practica7:latest
