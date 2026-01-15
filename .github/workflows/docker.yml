@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v2
@@ -37,3 +38,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          tags: |
+            javimanosalva/practica7:latest
+            ghcr.io/javimanosalva/practica7:latest
